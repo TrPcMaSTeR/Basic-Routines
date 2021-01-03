@@ -5,6 +5,7 @@ import { firebase } from "../../firebase/config";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { BRContext } from "./../../Context/BRContext";
 import { useNavigation } from "@react-navigation/native";
+import AsyncStorage from "@react-native-community/async-storage";
 
 export default function RegisterScreen() {
 	const navigation = useNavigation();
