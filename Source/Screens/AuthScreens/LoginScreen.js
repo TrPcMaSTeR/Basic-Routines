@@ -20,25 +20,6 @@ export default function LoginScreen() {
 			.then((response) => {
 				setUser(response.user.uid);
 				AsyncStorage.setItem("user", response.user.uid);
-
-				// const uid = response.user.uid;
-				// const usersRef = firebase.firestore().collection("users");
-				// usersRef
-				// 	.doc(uid)
-				// 	.get()
-				// 	.then((firestoreDocument) => {
-				// 		if (!firestoreDocument.exists) {
-				// 			alert("User does not exist anymore.");
-				// 			return;
-				// 		}
-				// 		const user = firestoreDocument.data();
-				// 		// navigation.navigate("Home", {
-				// 		// 	user: user,
-				// 		// });
-				// 	})
-				// 	.catch((error) => {
-				// 		alert(error);
-				// 	});
 			})
 			.catch((error) => {
 				alert(error);
@@ -52,7 +33,7 @@ export default function LoginScreen() {
 			>
 				<Image
 					style={styles.logo}
-					source={require("../../../assets/icon.jpg")}
+					source={require("../../../assets/icon.png")}
 				/>
 				<TextInput
 					style={styles.input}

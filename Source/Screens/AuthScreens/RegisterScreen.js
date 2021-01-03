@@ -13,6 +13,7 @@ export default function RegisterScreen() {
 	const [confirmPassword, setConfirmPassword] = useState("");
 
 	const { user, setUser } = useContext(BRContext);
+
 	const onRegisterPress = () => {
 		if (password !== confirmPassword) {
 			alert("Passwords don't match.");
@@ -50,7 +51,7 @@ export default function RegisterScreen() {
 			>
 				<Image
 					style={styles.logo}
-					source={require("../../../assets/icon.jpg")}
+					source={require("../../../assets/icon.png")}
 				/>
 				<TextInput
 					style={styles.input}
