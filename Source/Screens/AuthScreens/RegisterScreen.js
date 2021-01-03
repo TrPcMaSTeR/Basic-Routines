@@ -12,7 +12,7 @@ export default function RegisterScreen() {
 	const [password, setPassword] = useState("");
 	const [confirmPassword, setConfirmPassword] = useState("");
 
-	const { setUser } = useContext(BRContext);
+	const { user, setUser } = useContext(BRContext);
 	const onRegisterPress = () => {
 		if (password !== confirmPassword) {
 			alert("Passwords don't match.");
@@ -29,16 +29,13 @@ export default function RegisterScreen() {
 					email,
 				};
 				setUser(uid);
-				// const usersRef = firebase.firestore().collection("users");
-				// usersRef
-				// 	.doc(uid)
-				// 	.set(data)
-				// 	.then(() => {
-				// 		navigation.navigate("Home", { user: data });
-				// 	})
-				// 	.catch((error) => {
-				// 		alert(error);
-				// 	});
+				firebase
+					.firestore()
+					.collection("users")
+					.doc(uid)
+					.set({ userTasks: [] });
+
+				AsyncStorage.setItem("user", response.user.uid);
 			})
 			.catch((error) => {
 				alert(error);
