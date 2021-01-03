@@ -4,8 +4,10 @@ import { TextInput, TouchableOpacity } from "react-native-gesture-handler";
 import { firebase } from "../../firebase/config";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { BRContext } from "./../../Context/BRContext";
+import { useNavigation } from "@react-navigation/native";
 
-export default function RegisterScreen({ navigation }) {
+export default function RegisterScreen() {
+	const navigation = useNavigation();
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [confirmPassword, setConfirmPassword] = useState("");

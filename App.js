@@ -1,16 +1,42 @@
 import React from "react";
-import { StyleSheet, Text, View, StatusBar as bar } from "react-native";
-import { Provider as PaperProvider } from "react-native-paper";
+import { View, StatusBar as bar } from "react-native";
 import Routes from "./Source/Routes";
 import { BRProvider } from "./Source/Context/BRContext";
-import { NavigationContainer } from "@react-navigation/native";
+import {
+	NavigationContainer,
+	DarkTheme as NavigationDarkTheme,
+	DefaultTheme as NavigationDefaultTheme,
+} from "@react-navigation/native";
+import {
+	DarkTheme as PaperDarkTheme,
+	DefaultTheme as PaperDefaultTheme,
+	Provider as PaperProvider,
+} from "react-native-paper";
 import { StatusBar } from "expo-status-bar";
+
+const CombinedDarkTheme = {
+	...PaperDarkTheme,
+	...NavigationDarkTheme,
+	colors: {
+		...PaperDarkTheme.colors,
+		...NavigationDarkTheme.colors,
+	},
+};
+
+const CombinedDefaultTheme = {
+	...PaperDefaultTheme,
+	...NavigationDefaultTheme,
+	colors: {
+		...PaperDefaultTheme.colors,
+		...NavigationDefaultTheme.colors,
+	},
+};
 
 export default function App() {
 	return (
 		<BRProvider>
-			<PaperProvider>
-				<NavigationContainer>
+			<PaperProvider theme={CombinedDefaultTheme}>
+				<NavigationContainer theme={CombinedDefaultTheme}>
 					<StatusBar style="auto" />
 					<View
 						style={{

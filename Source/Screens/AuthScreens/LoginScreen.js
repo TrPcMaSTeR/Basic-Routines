@@ -1,4 +1,5 @@
 import AsyncStorage from "@react-native-community/async-storage";
+import { useNavigation } from "@react-navigation/native";
 import React, { useState, useContext } from "react";
 import { View, Text, StyleSheet, Image } from "react-native";
 import { TextInput, TouchableOpacity } from "react-native-gesture-handler";
@@ -6,7 +7,8 @@ import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view
 import { firebase } from "../../firebase/config";
 import { BRContext } from "./../../Context/BRContext";
 
-export default function LoginScreen({ navigation }) {
+export default function LoginScreen() {
+	const navigation = useNavigation();
 	const { setUser } = useContext(BRContext);
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");

@@ -3,8 +3,8 @@ import { createStackNavigator } from "@react-navigation/stack";
 import React, { useContext, useEffect, useState } from "react";
 import { ActivityIndicator, View } from "react-native";
 import { BRContext } from "./Context/BRContext";
-import AuthStack from "./Screens/AuthScreens/AuthStack";
-import Home from "./Screens/Home";
+import AuthStack from "./Screens/AuthScreens";
+import MainDraw from "./Screens/MainScreensDrawNavigator";
 
 const RoutesStack = createStackNavigator();
 
@@ -41,7 +41,7 @@ export default function Routes() {
 	return (
 		<RoutesStack.Navigator screenOptions={{ header: () => {} }}>
 			{user ? (
-				<RoutesStack.Screen name="Home" component={Home} />
+				<RoutesStack.Screen name="Main" component={MainDraw} />
 			) : (
 				<RoutesStack.Screen name="Auth" component={AuthStack} />
 			)}
