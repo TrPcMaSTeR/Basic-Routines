@@ -1,21 +1,27 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { StyleSheet, Text, View, StatusBar as bar } from "react-native";
+import { Provider as PaperProvider } from "react-native-paper";
+import Routes from "./Source/Routes";
+import { BRProvider } from "./Source/Context/BRContext";
+import { NavigationContainer } from "@react-navigation/native";
+import { StatusBar } from "expo-status-bar";
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+	return (
+		<BRProvider>
+			<PaperProvider>
+				<NavigationContainer>
+					<StatusBar style="auto" />
+					<View
+						style={{
+							flex: 1,
+							marginTop: bar.currentHeight,
+						}}
+					>
+						<Routes />
+					</View>
+				</NavigationContainer>
+			</PaperProvider>
+		</BRProvider>
+	);
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
