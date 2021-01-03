@@ -1,9 +1,7 @@
-import { AntDesign } from "@expo/vector-icons";
 import firebase from "firebase";
 import React, { useContext, useEffect, useState } from "react";
-import { LogBox, Text, View, StyleSheet } from "react-native";
-import { FlatList, TextInput } from "react-native-gesture-handler";
-import { Button, Modal, Portal } from "react-native-paper";
+import { LogBox, View } from "react-native";
+import { FlatList } from "react-native-gesture-handler";
 import Task from "../../../Components/Task";
 import { BRContext } from "../../../Context/BRContext";
 import AddNewTaskButton from "./../../../Components/AddNewTaskButton";
@@ -21,7 +19,7 @@ export default function Home() {
 			.doc(user)
 			.get()
 			.then((snap) => {
-				if (snap.data().userTasks) {
+				if (snap.data() && snap.data().userTasks) {
 					setUserTasks(snap.data().userTasks);
 				}
 			});

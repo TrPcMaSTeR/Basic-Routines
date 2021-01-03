@@ -14,6 +14,8 @@ import {
 } from "react-native-paper";
 import { StatusBar } from "expo-status-bar";
 
+import "./Source/utils/NotificationRegister";
+
 const CombinedDarkTheme = {
 	...PaperDarkTheme,
 	...NavigationDarkTheme,

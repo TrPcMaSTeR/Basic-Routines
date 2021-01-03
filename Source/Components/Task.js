@@ -5,6 +5,8 @@ import { BRContext } from "./../Context/BRContext";
 import firebase from "firebase";
 
 export default function Task({ item, setUserTasks, userTasks }) {
+	const { user } = useContext(BRContext);
+
 	const removeTask = (name) => {
 		setUserTasks(userTasks.filter((dt) => dt.name != name));
 		firebase
@@ -16,7 +18,6 @@ export default function Task({ item, setUserTasks, userTasks }) {
 			});
 	};
 
-	const { user } = useContext(BRContext);
 	return (
 		<Button
 			onPress={() => {
